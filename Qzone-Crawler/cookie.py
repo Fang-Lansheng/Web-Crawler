@@ -9,6 +9,7 @@
 """
 
 from selenium import webdriver
+from http import cookiejar
 import re
 import time
 import json
@@ -44,5 +45,40 @@ def back_session(driver):
     my_session = requests.sessions()
     cookies = driver.get_cookies()
     cookie = {}
+    # 将cookies转换为字典格式
+    for elem in cookies:
+        cookie[elem['name']] = elem['value']
+
+    headers = {'host': 'user.qzone.qq.com',
+               'accept-encoding': 'gzip, deflate, br',
+               'accept-language': 'zh-CN,zh;q=0.9',
+               'accept': '*/*',
+               'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.81 Safari/537.36',
+               'connection': 'keep-alive'}
+    c = requests.utils.cookiejar_from_dict(cookie, cookiejar=None, overwrite=True)
+    my_session.headers = headers
+    my_session.cookies.update(c)
+    return  my_session
+
+# g_tk 算法
+def get_g_tk(cookie):
+    hashes = 5381
+    for letter in cookie['p_skey']:
+        hashes += (hashes << 5) + ord(letter) # ord 是用来返回字符的 ASCII 码
+
+    return hashes & 0x7fffffff
+
+# 找出好友QQ号和备注列表
+def get_friend(self):
+    url_friend = 'https://user.qzone.qq.com/proxy/domain/r.qzone.qq.com/cgi-bin/tfriend/friend_ship_manager.cgi?'
+    g_tk = self.get_g_tk()
+    uin = self.get_uin()
+    data = {'uin': uin,
+            'do': 1,
+            'g_tk': g_tk}
+    data_encode = urllib.parse.urlencode(data)
+    url_friend += data_encode
+    res = requests.get(url_friend, headers=header, cookies=cookie)
+
 
 back_session(login())
