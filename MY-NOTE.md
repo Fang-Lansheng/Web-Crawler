@@ -1,7 +1,3 @@
-
-
-
-
 # 学习笔记
 
 课程地址：
@@ -208,4 +204,41 @@
       ```
 
 ## 实例爬虫
+
+![](https://ws1.sinaimg.cn/large/006y42ybly1fwaepikppcj30tp0elwi9.jpg)
+
+- 确定目标
+  - 抓取哪个网站的哪些网页的数据
+- 分析目标：确定抓取网站数据的策略
+  - 确定抓取目标页面的目标的格式，用于限定抓取目标的范围（URL格式）
+  - 确定抓取数据的（所在标签的）格式
+  - 分析页面的编码
+- 编写代码：在代码的解析器部分使用到分析目标所得到的抓取策略的结果
+- 执行爬虫
+
+#### 实例爬虫 - 分析目标
+
+- 目标：百度百科 Python 词条相关词条网页 - 标题和简介
+
+- 入口页：https://baike.baidu.com/item/Python/407313?fr=aladdin
+
+- URL格式：
+
+  - 词条页面URL：`/item/%E9%98%BF%E5%A7%86%E6%96%AF%E7%89%B9%E4%B8%B9/2259975`
+  - 这不是一个完整URL，需要在前面加上 `baike.baidu.com`
+
+- 数据格式
+
+  - 标题：
+
+    ```html
+    <dd class="lemmaWgt-lemmaTitle-title"><h1>***</h1></dd>
+    ```
+
+  - 简介：
+    ```html
+    <div class="lemma-summary" label-module="lemmaSummary">***</div>
+    ```
+
+  - 页面编码：`UTF-8`
 
