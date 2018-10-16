@@ -61,7 +61,8 @@
 
 - 网页下载器 —— urllib2
 
-  - urllib2下载网页方法1：最简洁方法![](https://ws1.sinaimg.cn/large/006y42ybly1fwa4gb1ln5j30cz0ait9m.jpg)
+  - urllib2下载网页方法1：最简洁方法
+    ![](https://ws1.sinaimg.cn/large/006y42ybly1fwa4gb1ln5j30cz0ait9m.jpg)
 
     ```python
     import urllib2
