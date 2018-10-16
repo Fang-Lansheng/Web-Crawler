@@ -61,8 +61,7 @@
 
 - 网页下载器 —— urllib2
 
-  - urllib2下载网页方法1：最简洁方法
-    ![](https://ws1.sinaimg.cn/large/006y42ybly1fwa4gb1ln5j30cz0ait9m.jpg)
+  - urllib2下载网页方法1：最简洁方法![](https://ws1.sinaimg.cn/large/006y42ybly1fwa4gb1ln5j30cz0ait9m.jpg)
 
     ```python
     import urllib2
@@ -126,3 +125,41 @@
     # 使用带有cookie的urllib2访问网页
     response = urllib2.urlopen('http://www.badu.com/')
     ```
+
+## 网页解析器
+
+- 网页解析器：从网页中提取有价值数据的工具
+
+  - 作用：
+    - 提取出新的待爬取URL列表
+    - 解析出有价值的数据
+
+  ![](https://ws1.sinaimg.cn/large/006y42ybly1fwaa46zzo9j31050ejjvf.jpg)
+
+- Python 有哪几种网页解析器？
+
+  ![1539690463196](C:\Users\Thistledown\AppData\Roaming\Typora\typora-user-images\1539690463196.png)
+
+  - 正则表达式 —— 最直观的一种
+    - 将整个网页文档当成一个字符串，用正则表达式进行模糊匹配提取出所需要的数据
+    - 虽然直观，但在文档复杂、庞大时非常麻烦
+  - html.parser —— Python 自带模块
+    - 可使用 html.parser 或者 lxml（更强大）作为其解析器
+  - Beautiful Soup —— 第三方插件
+  - lxml —— 第三方插件（解析 html/xml 网页）
+
+- 结构化解析 - DOM（Document Object Model）树
+
+  - 将整个网页文档加载成一个DOM树（文档对象模型），以树的方式进行上下级元素的遍历和访问
+  - DOM树
+
+  ![1539690919467](C:\Users\Thistledown\AppData\Roaming\Typora\typora-user-images\1539690919467.png)
+
+- Beautiful Soup
+
+  - Python 第三方库，用于从 HTML 或 XML 中提取数据
+  - 官网：http://www.crummy.com/software/BeautifulSoup
+  - 安装并测试 beautifulsoup4
+    - 安装：`pip install beautifulsoup4`
+    - 测试：`import bs4`
+    - 
