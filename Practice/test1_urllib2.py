@@ -8,6 +8,7 @@
 @Time    :  2018/10/16 18:15
 """
 
+# 参考：https://www.cnblogs.com/myis55555/p/6680933.html
 # 在Python3.x 中使用 import urllib.request，urllib.error，对应在 Python2.x 中使用 import urllib2
 import urllib.request
 # python2中的 cookielib 改为 http.cookiejar

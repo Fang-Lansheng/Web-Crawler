@@ -138,7 +138,7 @@
 
 - Python 有哪几种网页解析器？
 
-  ![1539690463196](C:\Users\Thistledown\AppData\Roaming\Typora\typora-user-images\1539690463196.png)
+  ![](https://ws1.sinaimg.cn/large/006y42ybly1fwacizcs0hj30yk0dwaf4.jpg)
 
   - 正则表达式 —— 最直观的一种
     - 将整个网页文档当成一个字符串，用正则表达式进行模糊匹配提取出所需要的数据
@@ -153,7 +153,7 @@
   - 将整个网页文档加载成一个DOM树（文档对象模型），以树的方式进行上下级元素的遍历和访问
   - DOM树
 
-  ![1539690919467](C:\Users\Thistledown\AppData\Roaming\Typora\typora-user-images\1539690919467.png)
+  ![](https://ws1.sinaimg.cn/large/006y42ybly1fwaciqq0dpj310e0epn31.jpg)
 
 - Beautiful Soup
 
@@ -162,4 +162,50 @@
   - 安装并测试 beautifulsoup4
     - 安装：`pip install beautifulsoup4`
     - 测试：`import bs4`
-    - 
+  - 语法：
+    ![](https://ws1.sinaimg.cn/large/006y42ybly1fwaciezbtuj30tz0g143c.jpg)
+
+    - 例如：  
+
+      ![1539693771938](C:\Users\Thistledown\AppData\Roaming\Typora\typora-user-images\1539693771938.png)
+
+    - 对应代码：
+
+      ```python
+      ### 创建 BeautifulSoup对象
+      from bs4 import BeautifulSoup
+      
+      # 根据 HTML 网页字符串创建 BeautifulSoup 对象
+      soup = BeautifulSoup(html_doc,				# HTML 文档字符串
+                           'html.parser'			# HTML 解析器
+                           from_encoding='utf-8'	# HTML 文档的编码
+                          )
+       
+      ### 搜索节点（find_all, find）
+      # 方法：find_all(name, attrs, string)
+      
+      # 查找所有标签为 a 的节点
+      soup.find_all('a')
+      
+      # 查找所有标签为 a，链接符合 /view/123.htm 形式的节点
+      soup.find_all('a', href='/view/123.htm')
+      soup.find_all('a', href=re.complie(r'/view/\d+\.htm'))	# 也可以传入正则表达式，来匹配对应的内容
+      
+      # 查找所有标签为 div，class 为 abc，文字为 Python 的节点
+      soup.find_all('div', class_='abc', string='Python')
+      
+      ### 访问节点信息
+      # 得到节点： <a href='1.html'>Python</a>
+      
+      # 获取查找到的节点的标签名称
+      node.name
+      
+      # 获取查找到的 a 节点的 href 属性
+      node['href']
+      
+      # 获取查找到的 a 节点的链接文字
+      node.get_text()
+      ```
+
+## 实例爬虫
+

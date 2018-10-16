@@ -3,6 +3,8 @@
     <words>
       <w>cookiejar</w>
       <w>cookielib</w>
+      <w>lxml</w>
+      <w>parsar</w>
       <w>qzone</w>
     </words>
   </dictionary>
