@@ -163,7 +163,7 @@
 
     - 例如：  
 
-      ![1539693771938](C:\Users\Thistledown\AppData\Roaming\Typora\typora-user-images\1539693771938.png)
+      ![](https://ws1.sinaimg.cn/large/006y42ybly1fwafcuno2mj30yp0c7q6c.jpg)
 
     - 对应代码：
 
