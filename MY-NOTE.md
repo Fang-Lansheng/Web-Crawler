@@ -41,7 +41,7 @@
   - 存储在关系数据库中（内存不足或永久保存）
   - 存储在缓存数据库中（大型公司）
 
-![1539676314923](C:\Users\Thistledown\AppData\Roaming\Typora\typora-user-images\1539676314923.png)
+![](https://ws1.sinaimg.cn/large/006y42ybly1fwa4z9sa5mj30jx084412.jpg)
 
 ## 三、网页下载器
 
@@ -122,5 +122,3 @@
     # 使用带有cookie的urllib2访问网页
     response = urllib2.urlopen('http://www.badu.com/')
     ```
-
-
