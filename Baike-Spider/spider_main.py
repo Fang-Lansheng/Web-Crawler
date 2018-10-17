@@ -28,20 +28,24 @@ class SpiderMain(object):
         self.urls.add_new_url(root_url)             # 将 root_url 添加进 URL 管理器
 
         while self.urls.has_new_url():              # 当 URL 管理器中有获取的 URL 时
-            new_url = self.urls.get_new_url()       # 获取 URL
-            print('craw', count, ':', new_url)
-            # 启动下载器下载页面，结果保存
-            html_cont = self.downloader.download(new_url)
-            # 用解析器来解析页面数据，得到新的 URL 列表以及新的数据
-            new_urls, new_data = self.parser.parse(new_url, html_cont)
-            self.urls.add_new_urls(new_urls)        # 将获取到的新的 URL 添加到 URL 管理器
-            self.outputter.collect_data(new_data)   # 收集获取到的数据
+            try:
+                new_url = self.urls.get_new_url()       # 获取 URL
+                print('craw', count, ':', new_url)
+                # 启动下载器下载页面，结果保存
+                html_cont = self.downloader.download(new_url)
+                # 用解析器来解析页面数据，得到新的 URL 列表以及新的数据
+                new_urls, new_data = self.parser.parse(new_url, html_cont)
+                self.urls.add_new_urls(new_urls)        # 将获取到的新的 URL 添加到 URL 管理器
+                self.outputter.collect_data(new_data)   # 收集获取到的数据
 
-            # 目标是爬取 1000 个页面
-            if count <= 1000:
-                count = count + 1
-            else:
-                break
+                # 目标是爬取 1000 个页面
+                if count <= 1000:
+                    count = count + 1
+                else:
+                    break
+            except:
+                print('craw failed')                # 异常处理
+
 
         self.outputter.output_html() # 输出收集好的数据
 
