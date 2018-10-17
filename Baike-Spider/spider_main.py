@@ -46,7 +46,6 @@ class SpiderMain(object):
             except:
                 print('craw failed')                # 异常处理
 
-
         self.outputter.output_html() # 输出收集好的数据
 
 if __name__ == '__main__':
