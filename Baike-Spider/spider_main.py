@@ -11,8 +11,9 @@ import html_downloader
 import html_outputter
 import html_parser
 import url_manager
+import time
 
-'''爬虫总调度程序'''
+''' 爬虫总调度程序 '''
 
 # 编写 main 函数
 class SpiderMain(object):
@@ -30,7 +31,7 @@ class SpiderMain(object):
         while self.urls.has_new_url():              # 当 URL 管理器中有获取的 URL 时
             try:
                 new_url = self.urls.get_new_url()       # 获取 URL
-                print('craw', count, ':', new_url)
+                print('→ craw', count, ':', new_url)
                 # 启动下载器下载页面，结果保存
                 html_cont = self.downloader.download(new_url)
                 # 用解析器来解析页面数据，得到新的 URL 列表以及新的数据
@@ -39,7 +40,7 @@ class SpiderMain(object):
                 self.outputter.collect_data(new_data)   # 收集获取到的数据
 
                 # 目标是爬取 1000 个页面
-                if count <= 1000:
+                if count < 5:
                     count = count + 1
                 else:
                     break
@@ -49,8 +50,14 @@ class SpiderMain(object):
         self.outputter.output_html() # 输出收集好的数据
 
 if __name__ == '__main__':
+    time_start = time.time()
+    print('【 爬虫程序开始 】\tat', time.strftime('%Y-%m-%d %H:%M:%S', time.localtime()))
+
     root_url = 'https://baike.baidu.com/item/Python/407313?fr=aladdin'  # 入口 url
     obj_spider = SpiderMain()   # 创建 Spider
     obj_spider.craw(root_url)   # 用 craw() 方法启动爬虫
+
+    print('【 程序结束 】\tat', time.strftime('%Y-%m-%d %H:%M:%S', time.localtime()),
+          '\n--- 耗时：', time.time() - time_start, 's ---')
 
 
