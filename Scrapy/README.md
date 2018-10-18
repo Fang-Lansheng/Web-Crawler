@@ -42,7 +42,7 @@ pip install scrapy
 **方法二：Anaconda**
 
 ```powershell
-conda install -c scrapyinghub scrapy
+conda install -c scrapinghub scrapy
 ```
 
 
