@@ -2,7 +2,7 @@
 
 ###### 课程地址：[Python开发简单爬虫_python爬虫入门教程_python爬虫视频教程-慕课网](https://www.imooc.com/learn/563)
 
-`2018年10月18日` `Python爬虫`
+`2018年10月18日` `Python爬虫` `urllib.request` `BeautifulSoup`
 
 ---
 
@@ -310,11 +310,19 @@ f_out.write(b'<!DOCTYPE html>')
 
 > $ spider_main.py
 >
-> 【 爬虫程序开始 】	at 2018-10-18 18:11:38
-> → craw 1 : https://baike.baidu.com/item/Python/407313?fr=aladdin in 4.173303842544556 s
-> → craw 2 : https://baike.baidu.com/item/%E9%9B%86%E6%88%90%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83 in 2.8297643661499023 s
+> 【 爬虫程序开始 】	at 2018-10-18 18:42:15
+> → craw 1 : https://baike.baidu.com/item/Python/407313?fr=aladdin in 4.175590753555298 s
+> → craw 2 : https://baike.baidu.com/item/%E8%99%9A%E6%8B%9F%E6%9C%BA in 4.365839719772339 s
+> → craw 3 : https://baike.baidu.com/item/OS in 7.095842123031616 s
+> → craw 4 : https://baike.baidu.com/item/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%97%85%E6%AF%92 in 4.249522924423218 s
 >
-> …
+> … …
+>
+> → craw 998 : https://baike.baidu.com/item/%E7%99%BD%E7%A7%8B%E6%9E%97 in 0.24550580978393555 s
+> → craw 999 : https://baike.baidu.com/item/%E4%B8%AD%E5%9B%BD%E4%BC%81%E4%B8%9A%E5%8F%91%E5%B1%95%E7%A0%94%E7%A9%B6%E4%B8%AD%E5%BF%83 in 0.2914268970489502 s
+> → craw 1000 : https://baike.baidu.com/item/%E9%95%87%E5%AE%88%E4%BD%BF in 0.5757756233215332 s
+> 【 程序结束 】	at 2018-10-18 19:19:48 
+> --- 耗时： 2253.4674208164215 s ---
 
 通过多次尝试，发现跑完一次程序的时间最快也在八分钟以上，固然和爬取数目（1000）有关，但同样受网速影响特别大，校园网抽风也不是一回两回了orz
 
