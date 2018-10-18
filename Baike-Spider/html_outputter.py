@@ -23,6 +23,10 @@ class HtmlOutputter(object):
     # 将收集好的数据写出到一个 html 文件中
     def output_html(self):
         f_out = open('output.html', 'wb+')
+        # wb+：以二进制格式打开一个文件用于读写。
+        # 如果该文件已存在则打开文件，并从开头开始编辑，即原有内容会被删除。
+        # 如果该文件不存在，创建新文件。
+        #（一般用于非文本文件如图片等）
 
         f_out.write(b'<!DOCTYPE html>'
                     b'<html lang="zh-CN">'

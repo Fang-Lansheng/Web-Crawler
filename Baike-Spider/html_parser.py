@@ -36,7 +36,7 @@ class HtmlParser(object):
 
         # 匹配出所有词条的 URL
         # /item/%E9%98%BF%E5%A7%86%E6%96%AF%E7%89%B9%E4%B8%B9/2259975
-        links = soup.find_all('a', href=re.compile(r'/item/[0-9a-zA-Z%/]+'))
+        links = soup.find_all('a', href=re.compile(r'/item/.*'))
         for link in links:
             new_url = link['href']
             new_full_url = request.urljoin('https://baike.baidu.com', new_url)

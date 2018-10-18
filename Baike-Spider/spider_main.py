@@ -39,13 +39,13 @@ class SpiderMain(object):
                 self.urls.add_new_urls(new_urls)        # 将获取到的新的 URL 添加到 URL 管理器
                 self.outputter.collect_data(new_data)   # 收集获取到的数据
 
+                print('→ craw', count, ':', new_url, 'in', time.time() - interval, 's')
+
                 # 目标是爬取 1000 个页面
                 if count < 1000:
                     count = count + 1
                 else:
                     break
-
-                print('→ craw', count, ':', new_url, 'in', time.time() - interval, 's')
 
             except:
                 print('craw failed')                # 异常处理
