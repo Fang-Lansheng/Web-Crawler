@@ -9,6 +9,7 @@
 """
 import re
 from bs4 import BeautifulSoup
+import scrapy
 
 # 以下示例来自网站 https://www.crummy.com/software/BeautifulSoup/bs4/doc/
 html_doc = """

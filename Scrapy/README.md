@@ -29,7 +29,7 @@
 
 
 
-### 一、Scrpy 安装
+### 一、Scrapy 安装
 
 [安装指南 — Scrapy 1.0.5 文档](https://scrapy-chs.readthedocs.io/zh_CN/1.0/intro/install.html)
 
@@ -48,6 +48,10 @@ conda install -c scrapyinghub scrapy
 
 
 ### 二、Scrapy 介绍
+
+没有 Scarpy 的时候，我们怎么做数据抓取？
+
+- `urllib` 或 `requrests`
 
 
 
