@@ -7,10 +7,12 @@
       <w>cookielib</w>
       <w>doctype</w>
       <w>douban</w>
+      <w>httpcache</w>
       <w>khtml</w>
       <w>lxml</w>
       <w>middlewares</w>
       <w>mongo</w>
+      <w>mydb</w>
       <w>newspider</w>
       <w>outputter</w>
       <w>parsar</w>

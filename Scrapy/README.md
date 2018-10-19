@@ -145,6 +145,8 @@ Created spider 'douban_spider' using template 'basic' in module:
 
 
 
+#### 制作爬虫
+
 启动项目
 
 ```powershell
@@ -152,6 +154,15 @@ Created spider 'douban_spider' using template 'basic' in module:
 ```
 
 
+
+#### 存储内容
+
+数据导出
+
+```powershell
+> $ scrapy crawl douban_spider -o test.json
+> $ scrapy crawl douban_spider -o test.csv
+```
 
 
 

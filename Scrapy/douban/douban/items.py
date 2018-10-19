@@ -14,8 +14,10 @@ class DoubanItem(scrapy.Item):
     # 需要抓取的数据有：
     ranking_number = scrapy.Field()         # 电影排名
     movie_title = scrapy.Field()            # 电影名称
-    movie_introduction = scrapy.Field()     # 电影介绍
-    movie_rating = scrapy.Field()           # 电影星级（⭐→⭐⭐⭐⭐⭐）
+    movie_staff = scrapy.Field()            # 电影职员表（导演：...）
+    movie_tag = scrapy.Field()              # 电影标签（年份/国家/类型）
     movie_score = scrapy.Field()            # 电影评分（0-10）
+    movie_comments = scrapy.Field()         # 电影评论人数
     movie_quote = scrapy.Field()            # 电影引用（一句话评价）
+    movie_url = scrapy.Field()              # 电影URL（豆瓣）
 
