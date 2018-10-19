@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Scrapy settings for douban project
+# Scrapy settings for xici_proxies project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -9,19 +9,14 @@
 #     https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://doc.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = 'douban'
+BOT_NAME = 'xici_proxies'
 
-SPIDER_MODULES = ['douban.spiders']
-NEWSPIDER_MODULE = 'douban.spiders'
+SPIDER_MODULES = ['xici_proxies.spiders']
+NEWSPIDER_MODULE = 'xici_proxies.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'douban (+http://www.yourdomain.com)'
-# “假装程序是一个浏览器”
-# USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) ' \
-#              'AppleWebKit/537.36 (KHTML, like Gecko) ' \
-#              'Chrome/69.0.3497.81 Safari/537.36'
-
+#USER_AGENT = 'xici_proxies (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
@@ -52,30 +47,14 @@ ROBOTSTXT_OBEY = True
 # Enable or disable spider middlewares
 # See https://doc.scrapy.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    'douban.middlewares.DoubanSpiderMiddleware': 543,
+#    'xici_proxies.middlewares.XiciProxiesSpiderMiddleware': 543,
 #}
 
 # Enable or disable downloader middlewares
 # See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
-DOWNLOADER_MIDDLEWARES = {
-#   'douban.middlewares.DoubanDownloaderMiddleware': 543,
-    #'douban.middlewares.MyProxy': 543,
-    'douban.middlewares.MyUserAgent': 544,
-}
-
-# Proxy mode
-# 0 = Every requests have different proxy
-# 1 = Take only one proxy from the list and assign it to every requests
-# 2 = Put a custom proxy to use in the settings
-PROXY_MODE = 0
-
-# If proxy mode is 2 uncomment this sentence :
-#CUSTOM_PROXY = "http://host1:port"
-
-COOKIES_ENABLED = False         # 禁用 Cookies
-AUTOTHROTTLE_ENABLED = True
-AUTOTHROTTLE_START_DELAY = 0.2  # 初始下载延迟
-DOWNLOAD_DELAY = 0.2  # 每次请求间隔时间
+#DOWNLOADER_MIDDLEWARES = {
+#    'xici_proxies.middlewares.XiciProxiesDownloaderMiddleware': 543,
+#}
 
 # Enable or disable extensions
 # See https://doc.scrapy.org/en/latest/topics/extensions.html
@@ -85,9 +64,9 @@ DOWNLOAD_DELAY = 0.2  # 每次请求间隔时间
 
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
-ITEM_PIPELINES = {                  # 开启 Pipelines
-   'douban.pipelines.DoubanPipeline': 300,
-}
+#ITEM_PIPELINES = {
+#    'xici_proxies.pipelines.XiciProxiesPipeline': 300,
+#}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://doc.scrapy.org/en/latest/topics/autothrottle.html
@@ -109,8 +88,3 @@ ITEM_PIPELINES = {                  # 开启 Pipelines
 #HTTPCACHE_DIR = 'httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
-
-mongo_host = '127.0.0.1'    # 本地服务器
-mongo_port = 27017          # MongoDB 默认端口
-mongo_db_name = 'douban'
-mongo_db_collection = 'douban_movie_top250'

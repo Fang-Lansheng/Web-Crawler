@@ -6,7 +6,10 @@
       <w>cookiejar</w>
       <w>cookielib</w>
       <w>doctype</w>
+      <w>dont</w>
       <w>douban</w>
+      <w>ffbc</w>
+      <w>httpbin</w>
       <w>httpcache</w>
       <w>khtml</w>
       <w>lxml</w>
@@ -20,6 +23,9 @@
       <w>robotstxt</w>
       <w>scarpy</w>
       <w>scrapy</w>
+      <w>tbody</w>
+      <w>xici</w>
+      <w>xicidaili</w>
     </words>
   </dictionary>
 </component>

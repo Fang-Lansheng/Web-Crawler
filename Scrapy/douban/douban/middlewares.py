@@ -4,7 +4,9 @@
 #
 # See documentation in:
 # https://doc.scrapy.org/en/latest/topics/spider-middleware.html
-
+import base64
+import random
+import scrapy_proxies
 from scrapy import signals
 
 
@@ -101,3 +103,68 @@ class DoubanDownloaderMiddleware(object):
 
     def spider_opened(self, spider):
         spider.logger.info('Spider opened: %s' % spider.name)
+
+
+class MyProxy(object):
+    def process_request(self, request, spider):
+        # PROXIES = [
+        #     "https://180.76.154.5:8888",
+        #     "https://14.109.107.1:8998",
+        #     "https://106.46.136.159:808",
+        #     "https://175.155.24.107:808",
+        #     "https://124.88.67.10:80",
+        #     "https://124.88.67.14:80",
+        #     "https://58.23.122.79:8118",
+        #     "https://123.157.146.116:8123",
+        #     "https://124.88.67.21:843",
+        #     "https://106.46.136.226:808",
+        #     "https://101.81.120.58:8118",
+        #     "https://180.175.145.148:808"
+        # ]
+        #
+        # proxy = random.choice(PROXIES)
+        # request.meta['proxy'] = 'http://%s' % proxy
+
+        PROXY_LIST = '/'
+        proxyServer = '74.82.219.105:28619'
+        proxyUser = 'Thist'
+        proxyPass = 'CB8D0AD56EAxxx'
+        proxyAuth = 'Basic ' + base64.urlsafe_b64encode(bytes((proxyUser + ':' + proxyPass),
+                    'ascii')).decode('utf-8')
+        request.meta['proxy'] = proxyServer
+        request.headers['Proxy-Authorization'] = proxyAuth
+
+        # request.meta['proxy'] = '//http-cla.abuyun.com:9030'
+        # proxy_name_password = b'H211EATS905745KC:F8FFBC929EB7D5A7'
+        # encode_pass_name = base64.b64encode(proxy_name_password)
+        # request.headers['Proxy-Authorization'] = 'Basic ' + encode_pass_name.decode()
+
+
+class MyUserAgent(object):
+    def process_request(self, request, spider):
+
+        USER_AGENT_LIST = [
+            "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/22.0.1207.1 Safari/537.1",
+            "Mozilla/5.0 (X11; CrOS i686 2268.111.0) AppleWebKit/536.11 (KHTML, like Gecko) Chrome/20.0.1132.57 Safari/536.11",
+            "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/536.6 (KHTML, like Gecko) Chrome/20.0.1092.0 Safari/536.6",
+            "Mozilla/5.0 (Windows NT 6.2) AppleWebKit/536.6 (KHTML, like Gecko) Chrome/20.0.1090.0 Safari/536.6",
+            "Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/19.77.34.5 Safari/537.1",
+            "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/536.5 (KHTML, like Gecko) Chrome/19.0.1084.9 Safari/536.5",
+            "Mozilla/5.0 (Windows NT 6.0) AppleWebKit/536.5 (KHTML, like Gecko) Chrome/19.0.1084.36 Safari/536.5",
+            "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/536.3 (KHTML, like Gecko) Chrome/19.0.1063.0 Safari/536.3",
+            "Mozilla/5.0 (Windows NT 5.1) AppleWebKit/536.3 (KHTML, like Gecko) Chrome/19.0.1063.0 Safari/536.3",
+            "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_0) AppleWebKit/536.3 (KHTML, like Gecko) Chrome/19.0.1063.0 Safari/536.3",
+            "Mozilla/5.0 (Windows NT 6.2) AppleWebKit/536.3 (KHTML, like Gecko) Chrome/19.0.1062.0 Safari/536.3",
+            "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/536.3 (KHTML, like Gecko) Chrome/19.0.1062.0 Safari/536.3",
+            "Mozilla/5.0 (Windows NT 6.2) AppleWebKit/536.3 (KHTML, like Gecko) Chrome/19.0.1061.1 Safari/536.3",
+            "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/536.3 (KHTML, like Gecko) Chrome/19.0.1061.1 Safari/536.3",
+            "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/536.3 (KHTML, like Gecko) Chrome/19.0.1061.1 Safari/536.3",
+            "Mozilla/5.0 (Windows NT 6.2) AppleWebKit/536.3 (KHTML, like Gecko) Chrome/19.0.1061.0 Safari/536.3",
+            "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/535.24 (KHTML, like Gecko) Chrome/19.0.1055.1 Safari/535.24",
+            "Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/535.24 (KHTML, like Gecko) Chrome/19.0.1055.1 Safari/535.24",
+            "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.132 Safari/537.36",
+            "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0"
+        ]
+
+        agent = random.choice(USER_AGENT_LIST)
+        request.headers['User-Agent'] = agent
