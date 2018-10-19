@@ -1,4 +1,5 @@
 # Scrapy 框架
+
 ###### 课程地址：[Python最火爬虫框架Scrapy入门与实践](https://www.imooc.com/learn/1017)
 
 `2018年10月18日` `Python爬虫` `Scrapy`
@@ -94,6 +95,63 @@ conda install -c scrapinghub scrapy
 >
 > - 链接：https://pan.baidu.com/s/1IeVY4B3XN0HT9XvpGiOtEQ
 > - 提取码：mzii
+
+
+
+### 四、Scrapy 项目实践
+
+**Scrapy抓取 4 步走：**
+
+- 新建项目
+- 明确目标
+- 制作爬虫
+- 存储内容
+
+#### 新建项目
+
+```powershell
+> $ scrapy startproject douban
+New Scrapy project 'douban', using template directory 'd:\\software\\python\\anaconda\\anaconda3\\lib\\site-packages\\scrapy\\templates\\project', created in:
+    D:\MyStuff\Git\Web-Crawler\Scrapy\douban
+
+You can start your first spider with:
+    cd douban
+    scrapy genspider example example.com
+```
+
+生成爬虫文件
+
+```powershell
+> $ cd douban
+> $ scrapy genspider douban_spider movie.douban.com
+Created spider 'douban_spider' using template 'basic' in module:
+  douban.spiders.douban_spider
+```
+
+#### 明确目标
+
+打开链接
+
+> https://movie.douban.com/top250
+
+抓取豆瓣电影 TOP250 数据，并将数据保存为 `csv.json` ，存储到 MongoDB 数据库中。
+
+需要获取的数据有：
+
+- 电影排行
+- 电影名称、介绍
+- 电影星级、评价
+- …
+
+
+
+启动项目
+
+```powershell
+> $ scrapy crawl douban_spider.py
+```
+
+
 
 
 

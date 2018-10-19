@@ -1,14 +1,21 @@
 <component name="ProjectDictionaryState">
   <dictionary name="Thistledown">
     <words>
+      <w>autothrottle</w>
       <w>baike</w>
       <w>cookiejar</w>
       <w>cookielib</w>
       <w>doctype</w>
+      <w>douban</w>
+      <w>khtml</w>
       <w>lxml</w>
+      <w>middlewares</w>
+      <w>mongo</w>
+      <w>newspider</w>
       <w>outputter</w>
       <w>parsar</w>
       <w>qzone</w>
+      <w>robotstxt</w>
       <w>scarpy</w>
       <w>scrapy</w>
     </words>
