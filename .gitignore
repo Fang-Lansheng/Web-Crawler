@@ -103,4 +103,4 @@ venv.bak/
 # mypy
 .mypy_cache/
 
-*.html linguist-language=py
+*.html linguist-language=Python
