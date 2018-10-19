@@ -5,6 +5,7 @@
       <sourceFolder url="file://$MODULE_DIR$/Baike-Spider" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Scrapy/douban" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Scrapy/douban/douban" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Scrapy/xici_proxies" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
