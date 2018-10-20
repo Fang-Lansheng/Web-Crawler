@@ -11,4 +11,8 @@ import scrapy
 class XiciProxiesItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
-    pass
+    IP = scrapy.Field()
+    port = scrapy.Field()
+    scheme = scrapy.Field()
+    URL = scrapy.Field()
+    proxy = scrapy.Field()
