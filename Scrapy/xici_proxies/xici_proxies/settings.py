@@ -64,9 +64,9 @@ ROBOTSTXT_OBEY = True
 
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'xici_proxies.pipelines.XiciProxiesPipeline': 300,
-#}
+ITEM_PIPELINES = {
+   'xici_proxies.pipelines.XiciProxiesPipeline': 300,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://doc.scrapy.org/en/latest/topics/autothrottle.html
@@ -88,3 +88,13 @@ ROBOTSTXT_OBEY = True
 #HTTPCACHE_DIR = 'httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
+
+COOKIES_ENABLED = False
+AUTOTHROTTLE_ENABLED = True
+AUTOTHROTTLE_START_DELAY = 0.2  # 初始下载延迟
+DOWNLOAD_DELAY = 0.2  # 每次请求间隔时间
+
+mongo_host = '127.0.0.1'    # 本地服务器
+mongo_port = 27017          # MongoDB 默认端口
+mongo_db_name = 'xici_proxies'
+mongo_db_collection = 'proxies_list'
